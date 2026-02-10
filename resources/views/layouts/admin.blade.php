@@ -226,7 +226,6 @@
                 <ul class="dropdown-menu dropdown-menu-end">
                     <li><span class="dropdown-item-text text-muted">{{ auth()->user()->role?->name }}</span></li>
                     <li><hr class="dropdown-divider"></li>
-                    <li><a class="dropdown-item" href="{{ route('home') }}"><i class="fas fa-globe me-2"></i>View Website</a></li>
                     <li>
                         <form action="{{ route('logout') }}" method="POST">
                             @csrf

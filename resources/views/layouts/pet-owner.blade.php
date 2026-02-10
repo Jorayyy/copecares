@@ -152,7 +152,6 @@
                     {{ auth()->user()->name }}
                 </a>
                 <ul class="dropdown-menu dropdown-menu-end">
-                    <li><a class="dropdown-item" href="{{ route('home') }}"><i class="fas fa-globe me-2"></i>View Website</a></li>
                     <li><a class="dropdown-item" href="{{ route('pet-owner.profile.edit') }}"><i class="fas fa-user me-2"></i>Profile</a></li>
                     <li>
                         <form action="{{ route('logout') }}" method="POST">
