@@ -1,0 +1,283 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+model Role {
+  id          Int      @id @default(autoincrement())
+  name        String   @unique
+  slug        String   @unique
+  description String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  users User[]
+}
+
+model User {
+  id            Int       @id @default(autoincrement())
+  name          String
+  email         String    @unique
+  emailVerified DateTime?
+  password      String
+  phone         String?
+  address       String?
+  avatar        String?
+  isActive      Boolean   @default(true)
+  roleId        Int?
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  role Role? @relation(fields: [roleId], references: [id], onDelete: SetNull)
+
+  pets                Pet[]
+  appointments        Appointment[]   @relation("CustomerAppointments")
+  veterinarianOf      Appointment[]   @relation("VeterinarianAppointments")
+  purchases           Sale[]          @relation("CustomerSales")
+  cashierSales        Sale[]          @relation("CashierSales")
+  medicalRecords      MedicalRecord[]
+}
+
+model PetCategory {
+  id          Int       @id @default(autoincrement())
+  name        String
+  description String?
+  isActive    Boolean   @default(true)
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  deletedAt   DateTime?
+
+  pets         Pet[]
+  services     Service[]
+  appointments Appointment[]
+}
+
+model Pet {
+  id            Int       @id @default(autoincrement())
+  userId        Int
+  petCategoryId Int
+  name          String
+  breed         String?
+  gender        String    @default("unknown")
+  birthDate     DateTime?
+  weight        Decimal?
+  color         String?
+  medicalNotes  String?
+  image         String?
+  isActive      Boolean   @default(true)
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+  deletedAt     DateTime?
+
+  user         User         @relation(fields: [userId], references: [id], onDelete: Cascade)
+  petCategory  PetCategory  @relation(fields: [petCategoryId], references: [id], onDelete: Cascade)
+  appointments Appointment[]
+  medicalRecords MedicalRecord[]
+  vaccinations Vaccination[]
+}
+
+model Service {
+  id              Int       @id @default(autoincrement())
+  name            String
+  description     String?
+  price           Decimal   @default(0)
+  durationMinutes Int       @default(30)
+  isActive        Boolean   @default(true)
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+  deletedAt       DateTime?
+
+  petCategories      PetCategory[]
+  appointmentServices AppointmentService[]
+  saleItems          SaleItem[]
+}
+
+model Appointment {
+  id            Int       @id @default(autoincrement())
+  code          String    @unique
+  userId        Int?
+  petId         Int?
+  veterinarianId Int?
+  ownerName     String?
+  contact       String?
+  email         String?
+  address       String?
+  petName       String?
+  petBreed      String?
+  petAge        String?
+  petCategoryId Int?
+  appointmentDate DateTime
+  appointmentTime String
+  reason        String?
+  notes         String?
+  status        String    @default("pending")
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+  deletedAt     DateTime?
+
+  user         User?         @relation("CustomerAppointments", fields: [userId], references: [id], onDelete: SetNull)
+  pet          Pet?          @relation(fields: [petId], references: [id], onDelete: SetNull)
+  veterinarian User?         @relation("VeterinarianAppointments", fields: [veterinarianId], references: [id], onDelete: SetNull)
+  petCategory  PetCategory?  @relation(fields: [petCategoryId], references: [id], onDelete: SetNull)
+  services     AppointmentService[]
+  medicalRecords MedicalRecord[]
+  sales        Sale[]
+}
+
+model AppointmentService {
+  id            Int      @id @default(autoincrement())
+  appointmentId Int
+  serviceId     Int
+  price         Decimal  @default(0)
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  appointment Appointment @relation(fields: [appointmentId], references: [id], onDelete: Cascade)
+  service     Service     @relation(fields: [serviceId], references: [id], onDelete: Cascade)
+
+  @@unique([appointmentId, serviceId])
+}
+
+model ProductCategory {
+  id          Int       @id @default(autoincrement())
+  name        String
+  description String?
+  isActive    Boolean   @default(true)
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  deletedAt   DateTime?
+
+  products Product[]
+}
+
+model Product {
+  id                Int       @id @default(autoincrement())
+  productCategoryId Int?
+  name              String
+  sku               String?   @unique
+  description       String?
+  costPrice         Decimal   @default(0)
+  sellingPrice      Decimal   @default(0)
+  stockQuantity     Int       @default(0)
+  reorderLevel      Int       @default(10)
+  unit              String    @default("piece")
+  image             String?
+  isActive          Boolean   @default(true)
+  createdAt         DateTime  @default(now())
+  updatedAt         DateTime  @updatedAt
+  deletedAt         DateTime?
+
+  productCategory ProductCategory? @relation(fields: [productCategoryId], references: [id], onDelete: SetNull)
+  saleItems       SaleItem[]
+}
+
+model Sale {
+  id             Int       @id @default(autoincrement())
+  invoiceNumber  String    @unique
+  userId         Int?
+  cashierId      Int?
+  appointmentId  Int?
+  customerName   String?
+  customerContact String?
+  subtotal       Decimal   @default(0)
+  taxAmount      Decimal   @default(0)
+  discountAmount Decimal   @default(0)
+  totalAmount    Decimal   @default(0)
+  amountPaid     Decimal   @default(0)
+  changeAmount   Decimal   @default(0)
+  paymentMethod  String    @default("cash")
+  status         String    @default("pending")
+  notes          String?
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
+  deletedAt      DateTime?
+
+  user        User?        @relation("CustomerSales", fields: [userId], references: [id], onDelete: SetNull)
+  cashier     User?        @relation("CashierSales", fields: [cashierId], references: [id], onDelete: SetNull)
+  appointment Appointment? @relation(fields: [appointmentId], references: [id], onDelete: SetNull)
+  items       SaleItem[]
+}
+
+model SaleItem {
+  id         Int      @id @default(autoincrement())
+  saleId     Int
+  itemType   String
+  productId  Int?
+  serviceId  Int?
+  itemName   String
+  quantity   Int      @default(1)
+  unitPrice  Decimal  @default(0)
+  discount   Decimal  @default(0)
+  totalPrice Decimal  @default(0)
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  sale    Sale     @relation(fields: [saleId], references: [id], onDelete: Cascade)
+  product Product? @relation(fields: [productId], references: [id], onDelete: SetNull)
+  service Service? @relation(fields: [serviceId], references: [id], onDelete: SetNull)
+}
+
+model MedicalRecord {
+  id             Int       @id @default(autoincrement())
+  petId          Int
+  appointmentId  Int?
+  veterinarianId Int?
+  recordDate     DateTime
+  diagnosis      String?
+  treatment      String?
+  prescription   String?
+  weight         Decimal?
+  temperature    Decimal?
+  notes          String?
+  nextVisitDate  DateTime?
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
+  deletedAt      DateTime?
+
+  pet          Pet          @relation(fields: [petId], references: [id], onDelete: Cascade)
+  appointment  Appointment? @relation(fields: [appointmentId], references: [id], onDelete: SetNull)
+  veterinarian User?        @relation(fields: [veterinarianId], references: [id], onDelete: SetNull)
+  vaccinations Vaccination[]
+}
+
+model Vaccination {
+  id              Int      @id @default(autoincrement())
+  petId           Int
+  medicalRecordId Int?
+  vaccineName     String
+  vaccinationDate DateTime
+  nextDueDate     DateTime?
+  batchNumber     String?
+  notes           String?
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  pet           Pet            @relation(fields: [petId], references: [id], onDelete: Cascade)
+  medicalRecord MedicalRecord? @relation(fields: [medicalRecordId], references: [id], onDelete: SetNull)
+}
+
+model Setting {
+  id        Int      @id @default(autoincrement())
+  key       String   @unique
+  value     String?
+  group     String   @default("general")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Message {
+  id        Int      @id @default(autoincrement())
+  name      String
+  email     String
+  phone     String?
+  subject   String?
+  message   String
+  isRead    Boolean  @default(false)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
