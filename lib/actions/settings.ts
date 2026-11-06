@@ -40,6 +40,55 @@ export async function saveSettings(
   return { success: "Settings saved." };
 }
 
+const LOGO_KEY = "clinic_logo";
+const LOGO_PATTERN = /^data:image\/(png|jpeg|webp);base64,[A-Za-z0-9+/=]+$/;
+
+export async function saveLogo(
+  _previousState: ActionState,
+  formData: FormData,
+): Promise<ActionState> {
+  await requireAdmin();
+
+  if (formValue(formData, "intent") === "remove") {
+    try {
+      await prisma.setting.updateMany({
+        where: { key: LOGO_KEY },
+        data: { value: null },
+      });
+    } catch (error) {
+      return { error: errorMessage(error) };
+    }
+
+    revalidatePath("/admin/settings");
+    revalidatePath("/", "layout");
+    return { success: "Logo removed." };
+  }
+
+  const logo = formValue(formData, "logo");
+
+  if (!logo) return { error: "Choose an image first." };
+  if (!LOGO_PATTERN.test(logo)) {
+    return { error: "Use a PNG, JPEG, or WebP image." };
+  }
+  if (logo.length > 1_200_000) {
+    return { error: "Image is too large. Choose a smaller file." };
+  }
+
+  try {
+    await prisma.setting.upsert({
+      where: { key: LOGO_KEY },
+      create: { key: LOGO_KEY, value: logo, group: "branding" },
+      update: { value: logo, group: "branding" },
+    });
+  } catch (error) {
+    return { error: errorMessage(error) };
+  }
+
+  revalidatePath("/admin/settings");
+  revalidatePath("/", "layout");
+  return { success: "Logo updated." };
+}
+
 const newSettingSchema = z.object({
   key: z
     .string()

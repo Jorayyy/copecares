@@ -23,10 +23,11 @@ export function BrandLogo({ className }: { className?: string }) {
 
   return (
     <Image
-      src="/logo.png"
+      src="/api/branding/logo"
       alt="CopeCares logo"
       width={64}
       height={64}
+      unoptimized
       className={cn("rounded-lg object-contain", className)}
       onError={() => setFailed(true)}
     />
