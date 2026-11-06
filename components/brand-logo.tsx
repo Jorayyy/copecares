@@ -12,7 +12,7 @@ export function BrandLogo({ className }: { className?: string }) {
     return (
       <span
         className={cn(
-          "grid place-items-center rounded-lg bg-emerald-600 font-bold text-white",
+          "grid place-items-center rounded-lg bg-dusk-600 font-bold text-white",
           className,
         )}
       >

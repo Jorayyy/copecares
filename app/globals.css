@@ -2,14 +2,64 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
+@theme {
+  --color-dusk-50: #f1f5fe;
+  --color-dusk-100: #e2eafb;
+  --color-dusk-200: #c9d6f4;
+  --color-dusk-300: #a4bcec;
+  --color-dusk-400: #789bdf;
+  --color-dusk-500: #5279d0;
+  --color-dusk-600: #3b5cad;
+  --color-dusk-700: #334d92;
+  --color-dusk-800: #2d4278;
+  --color-dusk-900: #2a3a63;
+  --color-dusk-950: #1b2542;
+
+  --color-navy-50: #eef3fb;
+  --color-navy-100: #dbe6f5;
+  --color-navy-200: #bfd2eb;
+  --color-navy-300: #96b4da;
+  --color-navy-400: #668fc5;
+  --color-navy-500: #456fab;
+  --color-navy-600: #34568d;
+  --color-navy-700: #2a4572;
+  --color-navy-800: #1f3357;
+  --color-navy-900: #152441;
+  --color-navy-950: #0a1526;
+
+  --color-sunset-50: #fff6ed;
+  --color-sunset-100: #ffead4;
+  --color-sunset-200: #ffd1a8;
+  --color-sunset-300: #ffb071;
+  --color-sunset-400: #ff8a3d;
+  --color-sunset-500: #fb6a16;
+  --color-sunset-600: #e8540c;
+  --color-sunset-700: #c03f0c;
+  --color-sunset-800: #983312;
+  --color-sunset-900: #7c2d12;
+  --color-sunset-950: #431407;
+
+  --color-zinc-50: #f4f7fb;
+  --color-zinc-100: #e9eef7;
+  --color-zinc-200: #d6e0ee;
+  --color-zinc-300: #b7c6dc;
+  --color-zinc-400: #8aa0bf;
+  --color-zinc-500: #647a9a;
+  --color-zinc-600: #4a5f7d;
+  --color-zinc-700: #374a64;
+  --color-zinc-800: #233248;
+  --color-zinc-900: #16233a;
+  --color-zinc-950: #0a1425;
+}
+
 :root {
-  --background: #f4f6f5;
-  --foreground: #171717;
+  --background: #f3f6fb;
+  --foreground: #0f1c30;
 }
 
 .dark {
-  --background: #0a0a0a;
-  --foreground: #ededed;
+  --background: #070f1d;
+  --foreground: #e9eef7;
 }
 
 @theme inline {
@@ -44,15 +94,15 @@ input[type="time"]::-webkit-calendar-picker-indicator:hover {
 
 input[type="checkbox"],
 input[type="radio"] {
-  accent-color: #059669;
+  accent-color: #3b5cad;
 }
 
 select option {
   background-color: #ffffff;
-  color: #18181b;
+  color: #16233a;
 }
 
 .dark select option {
-  background-color: #18181b;
-  color: #fafafa;
+  background-color: #16233a;
+  color: #f4f7fb;
 }

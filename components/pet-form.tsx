@@ -151,7 +151,7 @@ export function PetForm({
           type="checkbox"
           name="isActive"
           defaultChecked={pet?.isActive ?? true}
-          className="size-4 rounded border-zinc-300 text-emerald-600"
+          className="size-4 rounded border-zinc-300 text-dusk-600"
         />
         Active
       </label>

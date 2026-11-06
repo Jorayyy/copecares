@@ -145,7 +145,7 @@ export function ProductForm({
           type="checkbox"
           name="isActive"
           defaultChecked={product?.isActive ?? true}
-          className="size-4 rounded border-zinc-300 text-emerald-600"
+          className="size-4 rounded border-zinc-300 text-dusk-600"
         />
         Active
       </label>

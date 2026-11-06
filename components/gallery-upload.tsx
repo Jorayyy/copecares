@@ -210,7 +210,7 @@ function GallerySlotCard({ slot, hasImage }: GallerySlot) {
       <FormError message={localError ?? state?.error} />
 
       {state?.success ? (
-        <p className="text-xs font-medium text-emerald-600 dark:text-emerald-400">
+        <p className="text-xs font-medium text-dusk-600 dark:text-dusk-400">
           {state.success}
         </p>
       ) : null}

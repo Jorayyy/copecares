@@ -76,7 +76,7 @@ export function RegisterForm() {
         Already registered?{" "}
         <Link
           href="/login"
-          className="font-medium text-emerald-700 hover:underline dark:text-emerald-400"
+          className="font-medium text-dusk-700 hover:underline dark:text-dusk-400"
         >
           Sign in
         </Link>

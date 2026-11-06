@@ -264,7 +264,7 @@ export function PosTerminal({
                       disabled={outOfStock}
                       className="text-left disabled:cursor-not-allowed disabled:opacity-50"
                     >
-                      <Card className="h-full transition-colors hover:border-emerald-400">
+                      <Card className="h-full transition-colors hover:border-dusk-400">
                         <CardContent className="flex flex-col gap-1 p-4">
                           <span className="text-sm font-medium">
                             {product.name}
@@ -272,7 +272,7 @@ export function PosTerminal({
                           <span className="text-xs text-zinc-500 dark:text-zinc-400">
                             {product.category}
                           </span>
-                          <span className="mt-1 font-semibold text-emerald-700 dark:text-emerald-400">
+                          <span className="mt-1 font-semibold text-dusk-700 dark:text-dusk-400">
                             {formatPeso(product.price)}
                           </span>
                           <Badge
@@ -309,13 +309,13 @@ export function PosTerminal({
                     onClick={() => addService(service)}
                     className="text-left"
                   >
-                    <Card className="h-full transition-colors hover:border-emerald-400">
+                    <Card className="h-full transition-colors hover:border-dusk-400">
                       <CardContent className="flex flex-col gap-1 p-4">
                         <span className="text-sm font-medium">{service.name}</span>
                         <span className="text-xs text-zinc-500 dark:text-zinc-400">
                           {service.durationMinutes} min
                         </span>
-                        <span className="mt-1 font-semibold text-emerald-700 dark:text-emerald-400">
+                        <span className="mt-1 font-semibold text-dusk-700 dark:text-dusk-400">
                           {formatPeso(service.price)}
                         </span>
                       </CardContent>

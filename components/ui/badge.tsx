@@ -6,11 +6,11 @@ const tones: Record<string, string> = {
   default:
     "bg-zinc-100 text-zinc-700 dark:bg-zinc-800 dark:text-zinc-300",
   success:
-    "bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300",
+    "bg-dusk-100 text-dusk-800 dark:bg-dusk-950 dark:text-dusk-300",
   warning:
-    "bg-amber-100 text-amber-800 dark:bg-amber-950 dark:text-amber-300",
+    "bg-sunset-100 text-sunset-800 dark:bg-sunset-950 dark:text-sunset-300",
   danger: "bg-red-100 text-red-800 dark:bg-red-950 dark:text-red-300",
-  info: "bg-blue-100 text-blue-800 dark:bg-blue-950 dark:text-blue-300",
+  info: "bg-navy-100 text-navy-800 dark:bg-navy-950 dark:text-navy-300",
 };
 
 export function Badge({

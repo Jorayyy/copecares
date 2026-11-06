@@ -203,7 +203,7 @@ export function AppointmentForm({
               ))}
             </Select>
             {owner && pets.length === 0 ? (
-              <p className="text-xs text-amber-600 dark:text-amber-400">
+              <p className="text-xs text-sunset-600 dark:text-sunset-400">
                 This owner has no pets yet. Use walk-in or add a pet first.
               </p>
             ) : null}
@@ -370,7 +370,7 @@ export function AppointmentForm({
                 value={service.id}
                 checked={selectedServices.includes(service.id)}
                 onChange={() => toggleService(service.id)}
-                className="mt-0.5 size-4 rounded border-zinc-300 text-emerald-600"
+                className="mt-0.5 size-4 rounded border-zinc-300 text-dusk-600"
               />
               <span>
                 {service.name}

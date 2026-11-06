@@ -86,7 +86,7 @@ export function AdminNav({ compact = false }: { compact?: boolean }) {
             className={cn(
               "flex shrink-0 items-center gap-2 rounded-md px-3 py-1.5 text-sm font-medium",
               isActive(pathname, item.href)
-                ? "bg-emerald-50 text-emerald-700 dark:bg-emerald-950/50 dark:text-emerald-300"
+                ? "bg-dusk-50 text-dusk-700 [&>svg]:text-sunset-500 dark:bg-dusk-950/50 dark:text-dusk-300"
                 : "text-zinc-600 hover:bg-zinc-100 dark:text-zinc-400 dark:hover:bg-zinc-800",
             )}
           >
@@ -112,7 +112,7 @@ export function AdminNav({ compact = false }: { compact?: boolean }) {
               className={cn(
                 "flex items-center gap-3 rounded-md px-3 py-2 text-sm font-medium transition-colors",
                 isActive(pathname, item.href)
-                  ? "bg-emerald-50 text-emerald-700 dark:bg-emerald-950/50 dark:text-emerald-300"
+                  ? "bg-dusk-50 text-dusk-700 [&>svg]:text-sunset-500 dark:bg-dusk-950/50 dark:text-dusk-300"
                   : "text-zinc-700 hover:bg-zinc-100 dark:text-zinc-300 dark:hover:bg-zinc-800",
               )}
             >

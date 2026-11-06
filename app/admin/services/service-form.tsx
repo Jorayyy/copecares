@@ -92,7 +92,7 @@ export function ServiceForm({
                 name="petCategoryIds"
                 value={category.id}
                 defaultChecked={service?.categoryIds.includes(category.id)}
-                className="size-4 rounded border-zinc-300 text-emerald-600"
+                className="size-4 rounded border-zinc-300 text-dusk-600"
               />
               {category.name}
             </label>
@@ -105,7 +105,7 @@ export function ServiceForm({
           type="checkbox"
           name="isActive"
           defaultChecked={service?.isActive ?? true}
-          className="size-4 rounded border-zinc-300 text-emerald-600"
+          className="size-4 rounded border-zinc-300 text-dusk-600"
         />
         Active
       </label>

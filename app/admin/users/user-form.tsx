@@ -108,7 +108,7 @@ export function UserForm({
           name="isActive"
           defaultChecked={user?.isActive ?? true}
           disabled={isSelf}
-          className="size-4 rounded border-zinc-300 text-emerald-600 disabled:opacity-50"
+          className="size-4 rounded border-zinc-300 text-dusk-600 disabled:opacity-50"
         />
         Active account
         {isSelf ? (

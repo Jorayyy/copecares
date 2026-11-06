@@ -48,7 +48,7 @@ export function ProductCategoryForm({ category }: { category?: Category }) {
           type="checkbox"
           name="isActive"
           defaultChecked={category?.isActive ?? true}
-          className="size-4 rounded border-zinc-300 text-emerald-600"
+          className="size-4 rounded border-zinc-300 text-dusk-600"
         />
         Active
       </label>

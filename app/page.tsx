@@ -1,4 +1,4 @@
-﻿import Link from "next/link";
+import Link from "next/link";
 import Image from "next/image";
 import { Suspense } from "react";
 import { connection } from "next/server";
@@ -64,32 +64,32 @@ const careAreas = [
   {
     label: "Consultations",
     icon: Stethoscope,
-    gradient: "from-emerald-500 to-teal-600",
+    gradient: "from-dusk-500 to-dusk-700",
   },
   {
     label: "Vaccinations",
     icon: Syringe,
-    gradient: "from-sky-500 to-blue-600",
+    gradient: "from-navy-600 to-navy-800",
   },
   {
     label: "Grooming",
     icon: Scissors,
-    gradient: "from-violet-500 to-purple-600",
+    gradient: "from-sunset-400 to-sunset-600",
   },
   {
     label: "Surgery",
     icon: HeartPulse,
-    gradient: "from-rose-500 to-red-600",
+    gradient: "from-dusk-700 to-navy-900",
   },
   {
     label: "Dental care",
     icon: Sparkles,
-    gradient: "from-amber-500 to-orange-600",
+    gradient: "from-sunset-500 to-dusk-600",
   },
   {
     label: "Laboratory",
     icon: FlaskConical,
-    gradient: "from-cyan-500 to-teal-600",
+    gradient: "from-navy-700 to-dusk-800",
   },
 ];
 
@@ -258,7 +258,7 @@ async function LandingContent() {
             </Link>
             <Link
               href="/register"
-              className={buttonVariants({ size: "sm" })}
+              className={buttonVariants({ size: "sm", variant: "accent" })}
             >
               Book a visit
             </Link>
@@ -268,10 +268,10 @@ async function LandingContent() {
 
       <main className="flex-1">
         <section className="relative overflow-hidden">
-          <div className="pointer-events-none absolute inset-0 bg-linear-to-b from-emerald-50 via-white to-white dark:from-emerald-950/20 dark:via-zinc-950 dark:to-zinc-950" />
+          <div className="pointer-events-none absolute inset-0 bg-linear-to-b from-dusk-50 via-white to-white dark:from-dusk-950/20 dark:via-zinc-950 dark:to-zinc-950" />
           <div className="relative mx-auto grid w-full max-w-6xl gap-12 px-6 py-16 lg:grid-cols-[1.1fr_0.9fr] lg:items-center lg:py-24">
             <div>
-              <span className="inline-flex items-center gap-2 rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1 text-xs font-medium text-emerald-700 dark:border-emerald-900 dark:bg-emerald-950/40 dark:text-emerald-300">
+              <span className="inline-flex items-center gap-2 rounded-full border border-sunset-200 bg-sunset-50 px-3 py-1 text-xs font-medium text-sunset-700 dark:border-sunset-900 dark:bg-sunset-950/40 dark:text-sunset-300">
                 <PawPrint className="size-3.5" />
                 Veterinary care in Tacloban
               </span>
@@ -286,7 +286,7 @@ async function LandingContent() {
               <div className="mt-8 flex flex-wrap items-center gap-3">
                 <Link
                   href="/register"
-                  className={buttonVariants({ size: "lg" })}
+                  className={buttonVariants({ size: "lg", variant: "accent" })}
                 >
                   <CalendarDays className="size-5" />
                   Book an appointment
@@ -304,30 +304,30 @@ async function LandingContent() {
 
               <div className="mt-8 flex flex-wrap gap-5 text-sm text-zinc-600 dark:text-zinc-400">
                 <span className="flex items-center gap-2">
-                  <Clock3 className="size-4 text-emerald-600 dark:text-emerald-400" />
-                  Daily {opening} â€“ {closing}
+                  <Clock3 className="size-4 text-dusk-600 dark:text-dusk-400" />
+                  Daily {opening} – {closing}
                 </span>
                 <span className="flex items-center gap-2">
-                  <ShieldCheck className="size-4 text-emerald-600 dark:text-emerald-400" />
+                  <ShieldCheck className="size-4 text-dusk-600 dark:text-dusk-400" />
                   Complete medical records
                 </span>
                 <span className="flex items-center gap-2">
-                  <CheckCircle2 className="size-4 text-emerald-600 dark:text-emerald-400" />
+                  <CheckCircle2 className="size-4 text-dusk-600 dark:text-dusk-400" />
                   Walk-ins welcome
                 </span>
               </div>
             </div>
 
             <div className="relative">
-              <div className="relative overflow-hidden rounded-3xl bg-linear-to-br from-emerald-600 via-emerald-500 to-teal-600 p-8 text-white shadow-xl shadow-emerald-600/20">
-                <div className="absolute -right-10 -top-10 size-48 rounded-full bg-white/10" />
+              <div className="relative overflow-hidden rounded-3xl bg-linear-to-br from-navy-900 via-navy-800 to-dusk-700 p-8 text-white shadow-xl shadow-navy-950/30">
+                <div className="absolute -right-10 -top-10 size-48 rounded-full bg-sunset-400/20" />
                 <div className="absolute -bottom-16 -left-10 size-56 rounded-full bg-white/10" />
                 <div className="relative flex flex-col gap-6">
                   <div className="grid size-20 place-items-center rounded-2xl bg-white/15 backdrop-blur">
                     <PawPrint className="size-10" />
                   </div>
                   <div>
-                    <p className="text-sm font-medium text-emerald-50/90">
+                    <p className="text-sm font-medium text-white/80">
                       Your clinic team
                     </p>
                     <p className="mt-1 text-2xl font-semibold">
@@ -336,13 +336,13 @@ async function LandingContent() {
                   </div>
                   <div className="grid gap-2 sm:grid-cols-2">
                     <div className="rounded-xl bg-white/10 p-3 backdrop-blur">
-                      <p className="text-xs text-emerald-50/80">Open today</p>
+                      <p className="text-xs text-white/70">Open today</p>
                       <p className="mt-0.5 text-sm font-semibold">
-                        {opening} â€“ {closing}
+                        {opening} – {closing}
                       </p>
                     </div>
                     <div className="rounded-xl bg-white/10 p-3 backdrop-blur">
-                      <p className="text-xs text-emerald-50/80">Call us</p>
+                      <p className="text-xs text-white/70">Call us</p>
                       <p className="mt-0.5 truncate text-sm font-semibold">
                         {phone || "Message us online"}
                       </p>
@@ -358,7 +358,7 @@ async function LandingContent() {
           <div className="mx-auto w-full max-w-6xl px-6 py-16">
             <div className="flex flex-wrap items-end justify-between gap-4">
               <div>
-                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-emerald-600 dark:text-emerald-400">
+                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-sunset-600 dark:text-sunset-400">
                   Services
                 </p>
                 <h2 className="mt-2 text-3xl font-semibold tracking-tight text-zinc-900 sm:text-4xl dark:text-zinc-50">
@@ -378,9 +378,9 @@ async function LandingContent() {
               {services.map((service) => (
                 <div
                   key={service.id}
-                  className="group flex flex-col rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm transition-all hover:-translate-y-1 hover:border-emerald-200 hover:shadow-lg dark:border-zinc-800 dark:bg-zinc-900 dark:hover:border-emerald-900"
+                  className="group flex flex-col rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm transition-all hover:-translate-y-1 hover:border-dusk-200 hover:shadow-lg dark:border-zinc-800 dark:bg-zinc-900 dark:hover:border-dusk-900"
                 >
-                  <span className="grid size-11 place-items-center rounded-xl bg-emerald-50 text-emerald-600 transition-colors group-hover:bg-emerald-600 group-hover:text-white dark:bg-emerald-950/50 dark:text-emerald-300">
+                  <span className="grid size-11 place-items-center rounded-xl bg-dusk-50 text-dusk-600 transition-colors group-hover:bg-dusk-600 group-hover:text-white dark:bg-dusk-950/50 dark:text-dusk-300">
                     <Stethoscope className="size-5" />
                   </span>
                   <h3 className="mt-4 font-semibold text-zinc-900 dark:text-zinc-50">
@@ -409,7 +409,7 @@ async function LandingContent() {
         >
           <div className="mx-auto grid w-full max-w-6xl gap-10 px-6 py-16 lg:grid-cols-2 lg:items-center">
             <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-emerald-600 dark:text-emerald-400">
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-sunset-600 dark:text-sunset-400">
                 About the clinic
               </p>
               <h2 className="mt-2 text-3xl font-semibold tracking-tight text-zinc-900 sm:text-4xl dark:text-zinc-50">
@@ -437,7 +437,7 @@ async function LandingContent() {
                     key={item}
                     className="flex items-start gap-2 text-sm text-zinc-700 dark:text-zinc-300"
                   >
-                    <CheckCircle2 className="mt-0.5 size-4 shrink-0 text-emerald-600 dark:text-emerald-400" />
+                    <CheckCircle2 className="mt-0.5 size-4 shrink-0 text-dusk-600 dark:text-dusk-400" />
                     {item}
                   </div>
                 ))}
@@ -471,7 +471,7 @@ async function LandingContent() {
                   key={card.title}
                   className="rounded-2xl border border-zinc-200 bg-white p-5 shadow-sm dark:border-zinc-800 dark:bg-zinc-900"
                 >
-                  <card.icon className="size-5 text-emerald-600 dark:text-emerald-400" />
+                  <card.icon className="size-5 text-dusk-600 dark:text-dusk-400" />
                   <h3 className="mt-3 font-semibold text-zinc-900 dark:text-zinc-50">
                     {card.title}
                   </h3>
@@ -486,7 +486,7 @@ async function LandingContent() {
 
         <section id="team" className="scroll-mt-24">
           <div className="mx-auto w-full max-w-6xl px-6 py-16">
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-emerald-600 dark:text-emerald-400">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-sunset-600 dark:text-sunset-400">
               Our team
             </p>
             <h2 className="mt-2 text-3xl font-semibold tracking-tight text-zinc-900 sm:text-4xl dark:text-zinc-50">
@@ -498,7 +498,7 @@ async function LandingContent() {
                   key={vet.id}
                   className="flex items-center gap-4 rounded-2xl border border-zinc-200 bg-white p-5 shadow-sm dark:border-zinc-800 dark:bg-zinc-900"
                 >
-                  <span className="grid size-14 shrink-0 place-items-center rounded-2xl bg-emerald-50 text-lg font-semibold text-emerald-700 dark:bg-emerald-950/50 dark:text-emerald-300">
+                  <span className="grid size-14 shrink-0 place-items-center rounded-2xl bg-dusk-50 text-lg font-semibold text-dusk-700 dark:bg-dusk-950/50 dark:text-dusk-300">
                     {vet.name
                       .split(/\s+/)
                       .filter(Boolean)
@@ -538,7 +538,7 @@ async function LandingContent() {
           className="scroll-mt-24 border-y border-zinc-200 bg-zinc-50 dark:border-zinc-800 dark:bg-zinc-900/40"
         >
           <div className="mx-auto w-full max-w-6xl px-6 py-16">
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-emerald-600 dark:text-emerald-400">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-sunset-600 dark:text-sunset-400">
               Reviews
             </p>
             <h2 className="mt-2 text-3xl font-semibold tracking-tight text-zinc-900 sm:text-4xl dark:text-zinc-50">
@@ -550,7 +550,7 @@ async function LandingContent() {
                   key={testimonial.name}
                   className="flex flex-col rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm dark:border-zinc-800 dark:bg-zinc-900"
                 >
-                  <div className="flex gap-0.5 text-amber-500">
+                  <div className="flex gap-0.5 text-sunset-500">
                     {[0, 1, 2, 3, 4].map((star) => (
                       <Sparkles key={star} className="size-4" />
                     ))}
@@ -573,7 +573,7 @@ async function LandingContent() {
               href={FACEBOOK_URL}
               target="_blank"
               rel="noreferrer"
-              className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-emerald-600 hover:text-emerald-700 dark:text-emerald-400"
+              className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-dusk-600 hover:text-dusk-700 dark:text-dusk-400"
             >
               <FacebookIcon className="size-4" />
               Read more reviews on Facebook
@@ -584,7 +584,7 @@ async function LandingContent() {
 
         <section id="gallery" className="scroll-mt-24">
           <div className="mx-auto w-full max-w-6xl px-6 py-16">
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-emerald-600 dark:text-emerald-400">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-sunset-600 dark:text-sunset-400">
               Gallery
             </p>
             <h2 className="mt-2 text-3xl font-semibold tracking-tight text-zinc-900 sm:text-4xl dark:text-zinc-50">
@@ -633,7 +633,7 @@ async function LandingContent() {
         >
           <div className="mx-auto grid w-full max-w-6xl gap-8 px-6 py-16 lg:grid-cols-2">
             <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-emerald-600 dark:text-emerald-400">
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-sunset-600 dark:text-sunset-400">
                 Visit us
               </p>
               <h2 className="mt-2 text-3xl font-semibold tracking-tight text-zinc-900 sm:text-4xl dark:text-zinc-50">
@@ -646,7 +646,7 @@ async function LandingContent() {
 
               <div className="mt-6 flex flex-col gap-3">
                 <div className="flex items-start gap-3 rounded-2xl border border-zinc-200 bg-white p-4 dark:border-zinc-800 dark:bg-zinc-900">
-                  <MapPin className="mt-0.5 size-5 shrink-0 text-emerald-600 dark:text-emerald-400" />
+                  <MapPin className="mt-0.5 size-5 shrink-0 text-dusk-600 dark:text-dusk-400" />
                   <div>
                     <p className="text-sm font-semibold text-zinc-900 dark:text-zinc-50">
                       Address
@@ -658,18 +658,18 @@ async function LandingContent() {
                 </div>
                 <div className="grid gap-3 sm:grid-cols-2">
                   <div className="flex items-start gap-3 rounded-2xl border border-zinc-200 bg-white p-4 dark:border-zinc-800 dark:bg-zinc-900">
-                    <Clock3 className="mt-0.5 size-5 shrink-0 text-emerald-600 dark:text-emerald-400" />
+                    <Clock3 className="mt-0.5 size-5 shrink-0 text-dusk-600 dark:text-dusk-400" />
                     <div>
                       <p className="text-sm font-semibold text-zinc-900 dark:text-zinc-50">
                         Hours
                       </p>
                       <p className="text-sm text-zinc-500 dark:text-zinc-400">
-                        Daily {opening} â€“ {closing}
+                        Daily {opening} – {closing}
                       </p>
                     </div>
                   </div>
                   <div className="flex items-start gap-3 rounded-2xl border border-zinc-200 bg-white p-4 dark:border-zinc-800 dark:bg-zinc-900">
-                    <Phone className="mt-0.5 size-5 shrink-0 text-emerald-600 dark:text-emerald-400" />
+                    <Phone className="mt-0.5 size-5 shrink-0 text-dusk-600 dark:text-dusk-400" />
                     <div>
                       <p className="text-sm font-semibold text-zinc-900 dark:text-zinc-50">
                         Phone
@@ -678,7 +678,7 @@ async function LandingContent() {
                         {phone ? (
                           <a
                             href={`tel:${phone.replace(/[^\d+]/g, "")}`}
-                            className="hover:text-emerald-600 dark:hover:text-emerald-400"
+                            className="hover:text-dusk-600 dark:hover:text-dusk-400"
                           >
                             {phone}
                           </a>
@@ -692,9 +692,9 @@ async function LandingContent() {
                 {email ? (
                   <a
                     href={`mailto:${email}`}
-                    className="flex items-start gap-3 rounded-2xl border border-zinc-200 bg-white p-4 transition-colors hover:border-emerald-200 dark:border-zinc-800 dark:bg-zinc-900 dark:hover:border-emerald-900"
+                    className="flex items-start gap-3 rounded-2xl border border-zinc-200 bg-white p-4 transition-colors hover:border-dusk-200 dark:border-zinc-800 dark:bg-zinc-900 dark:hover:border-dusk-900"
                   >
-                    <Mail className="mt-0.5 size-5 shrink-0 text-emerald-600 dark:text-emerald-400" />
+                    <Mail className="mt-0.5 size-5 shrink-0 text-dusk-600 dark:text-dusk-400" />
                     <div>
                       <p className="text-sm font-semibold text-zinc-900 dark:text-zinc-50">
                         Email
@@ -724,7 +724,7 @@ async function LandingContent() {
         <section className="scroll-mt-24">
           <div className="mx-auto grid w-full max-w-6xl gap-8 px-6 py-16 lg:grid-cols-2 lg:items-center">
             <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-emerald-600 dark:text-emerald-400">
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-sunset-600 dark:text-sunset-400">
                 Facebook
               </p>
               <h2 className="mt-2 text-3xl font-semibold tracking-tight text-zinc-900 sm:text-4xl dark:text-zinc-50">
@@ -774,7 +774,7 @@ async function LandingContent() {
           className="scroll-mt-24 border-t border-zinc-200 bg-zinc-50 dark:border-zinc-800 dark:bg-zinc-900/40"
         >
           <div className="mx-auto w-full max-w-4xl px-6 py-16">
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-emerald-600 dark:text-emerald-400">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-sunset-600 dark:text-sunset-400">
               FAQ
             </p>
             <h2 className="mt-2 text-3xl font-semibold tracking-tight text-zinc-900 sm:text-4xl dark:text-zinc-50">
@@ -799,20 +799,20 @@ async function LandingContent() {
           </div>
         </section>
 
-        <section className="bg-emerald-600 dark:bg-emerald-700">
+        <section className="bg-navy-900 dark:bg-navy-950">
           <div className="mx-auto flex w-full max-w-6xl flex-wrap items-center justify-between gap-6 px-6 py-14 text-white">
             <div>
               <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">
                 Ready to book your visit?
               </h2>
-              <p className="mt-2 text-emerald-50/90">
+              <p className="mt-2 text-navy-100/90">
                 Create an account, add your pet, and choose a time that works.
               </p>
             </div>
             <div className="flex flex-wrap gap-3">
               <Link
                 href="/register"
-                className={buttonVariants({ size: "lg" })}
+                className={buttonVariants({ size: "lg", variant: "accent" })}
               >
                 Book an appointment
                 <ArrowRight className="size-4" />
@@ -850,7 +850,7 @@ async function LandingContent() {
                 target="_blank"
                 rel="noreferrer"
                 aria-label="Facebook"
-                className="grid size-9 place-items-center rounded-lg border border-zinc-200 text-zinc-500 transition-colors hover:border-emerald-300 hover:text-emerald-600 dark:border-zinc-800 dark:text-zinc-400"
+                className="grid size-9 place-items-center rounded-lg border border-zinc-200 text-zinc-500 transition-colors hover:border-sunset-300 hover:text-sunset-600 dark:border-zinc-800 dark:text-zinc-400"
               >
                 <FacebookIcon className="size-4" />
               </a>
@@ -859,7 +859,7 @@ async function LandingContent() {
                 target="_blank"
                 rel="noreferrer"
                 aria-label="Messenger"
-                className="grid size-9 place-items-center rounded-lg border border-zinc-200 text-zinc-500 transition-colors hover:border-emerald-300 hover:text-emerald-600 dark:border-zinc-800 dark:text-zinc-400"
+                className="grid size-9 place-items-center rounded-lg border border-zinc-200 text-zinc-500 transition-colors hover:border-sunset-300 hover:text-sunset-600 dark:border-zinc-800 dark:text-zinc-400"
               >
                 <MessageCircle className="size-4" />
               </a>
@@ -875,7 +875,7 @@ async function LandingContent() {
                 <li key={item.href}>
                   <a
                     href={item.href}
-                    className="transition-colors hover:text-emerald-600 dark:hover:text-emerald-400"
+                    className="transition-colors hover:text-dusk-600 dark:hover:text-dusk-400"
                   >
                     {item.label}
                   </a>
@@ -895,14 +895,14 @@ async function LandingContent() {
               </li>
               <li className="flex items-center gap-2">
                 <Clock3 className="size-4 shrink-0" />
-                Daily {opening} â€“ {closing}
+                Daily {opening} – {closing}
               </li>
               {phone ? (
                 <li className="flex items-center gap-2">
                   <Phone className="size-4 shrink-0" />
                   <a
                     href={`tel:${phone.replace(/[^\d+]/g, "")}`}
-                    className="hover:text-emerald-600 dark:hover:text-emerald-400"
+                    className="hover:text-dusk-600 dark:hover:text-dusk-400"
                   >
                     {phone}
                   </a>
@@ -915,13 +915,13 @@ async function LandingContent() {
         <div className="border-t border-zinc-200 px-6 py-5 dark:border-zinc-800">
           <div className="mx-auto flex w-full max-w-6xl flex-wrap items-center justify-between gap-2 text-xs text-zinc-500 dark:text-zinc-400">
             <p>
-              Â© {new Date().getFullYear()} {clinicName}. All rights reserved.
+              © {new Date().getFullYear()} {clinicName}. All rights reserved.
             </p>
             <div className="flex gap-4">
-              <Link href="/login" className="hover:text-emerald-600">
+              <Link href="/login" className="hover:text-dusk-600">
                 Staff sign in
               </Link>
-              <Link href="/register" className="hover:text-emerald-600">
+              <Link href="/register" className="hover:text-dusk-600">
                 Pet owner registration
               </Link>
             </div>

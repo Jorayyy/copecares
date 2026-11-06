@@ -71,7 +71,7 @@ export function SettingsForm({ settings }: { settings: Setting[] }) {
 
         <FormError message={state?.error} />
         {state?.success ? (
-          <p className="text-sm font-medium text-emerald-600 dark:text-emerald-400">
+          <p className="text-sm font-medium text-dusk-600 dark:text-dusk-400">
             {state.success}
           </p>
         ) : null}

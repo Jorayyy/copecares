@@ -23,20 +23,20 @@ const pipeline = [
   {
     status: "pending",
     label: "Pending",
-    dot: "bg-amber-500",
-    border: "border-l-amber-400",
+    dot: "bg-sunset-500",
+    border: "border-l-sunset-400",
   },
   {
     status: "confirmed",
     label: "Confirmed",
-    dot: "bg-emerald-500",
-    border: "border-l-emerald-400",
+    dot: "bg-dusk-500",
+    border: "border-l-dusk-400",
   },
   {
     status: "in_progress",
     label: "In progress",
-    dot: "bg-sky-500",
-    border: "border-l-sky-400",
+    dot: "bg-navy-500",
+    border: "border-l-navy-400",
   },
   {
     status: "completed",
@@ -109,28 +109,28 @@ export default async function AdminDashboardPage() {
           ? "No visits scheduled"
           : `${appointments.length - cancelled} active on the board`,
       icon: CalendarDays,
-      tone: "bg-emerald-50 text-emerald-600 dark:bg-emerald-950/50 dark:text-emerald-300",
+      tone: "bg-dusk-50 text-dusk-600 dark:bg-dusk-950/50 dark:text-dusk-300",
     },
     {
       label: "Pending approval",
       value: pendingCount,
       hint: "Awaiting confirmation",
       icon: Clock3,
-      tone: "bg-amber-50 text-amber-600 dark:bg-amber-950/50 dark:text-amber-300",
+      tone: "bg-sunset-50 text-sunset-600 dark:bg-sunset-950/50 dark:text-sunset-300",
     },
     {
       label: "Today's sales",
       value: formatPeso(sales._sum.totalAmount ?? 0),
       hint: "Completed transactions",
       icon: Wallet,
-      tone: "bg-sky-50 text-sky-600 dark:bg-sky-950/50 dark:text-sky-300",
+      tone: "bg-navy-50 text-navy-600 dark:bg-navy-950/50 dark:text-navy-300",
     },
     {
       label: "Registered pets",
       value: petCount,
       hint: "Active pet profiles",
       icon: PawPrint,
-      tone: "bg-violet-50 text-violet-600 dark:bg-violet-950/50 dark:text-violet-300",
+      tone: "bg-navy-100 text-navy-700 dark:bg-navy-900/50 dark:text-navy-200",
     },
   ];
 
@@ -145,7 +145,7 @@ export default async function AdminDashboardPage() {
     <div className="flex flex-col gap-6">
       <div className="flex flex-wrap items-end justify-between gap-4">
         <div>
-          <p className="text-xs font-semibold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">
+          <p className="text-xs font-semibold uppercase tracking-wider text-dusk-600 dark:text-dusk-400">
             {greeting()}
           </p>
           <h1 className="mt-1 text-2xl font-semibold tracking-tight text-zinc-900 dark:text-zinc-50">
@@ -193,7 +193,7 @@ export default async function AdminDashboardPage() {
       {lowStock > 0 ? (
         <Link
           href="/admin/products"
-          className="flex items-center gap-3 rounded-xl border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-800 transition hover:bg-amber-100 dark:border-amber-900/60 dark:bg-amber-950/30 dark:text-amber-200"
+          className="flex items-center gap-3 rounded-xl border border-sunset-200 bg-sunset-50 px-4 py-3 text-sm text-sunset-800 transition hover:bg-sunset-100 dark:border-sunset-900/60 dark:bg-sunset-950/30 dark:text-sunset-200"
         >
           <PackageX className="size-5 shrink-0" />
           <span className="flex-1">
@@ -222,7 +222,7 @@ export default async function AdminDashboardPage() {
           </div>
           <Link
             href="/admin/appointments"
-            className="flex items-center gap-1 text-sm font-medium text-emerald-600 hover:text-emerald-700 dark:text-emerald-400"
+            className="flex items-center gap-1 text-sm font-medium text-dusk-600 hover:text-dusk-700 dark:text-dusk-400"
           >
             View all
             <ArrowRight className="size-4" />
@@ -312,14 +312,14 @@ export default async function AdminDashboardPage() {
             No appointments scheduled today.{" "}
             <Link
               href="/admin/appointments/new"
-              className="font-medium text-emerald-600 hover:underline dark:text-emerald-400"
+              className="font-medium text-dusk-600 hover:underline dark:text-dusk-400"
             >
               Book a visit
             </Link>{" "}
             or review{" "}
             <Link
               href="/admin/appointments"
-              className="font-medium text-emerald-600 hover:underline dark:text-emerald-400"
+              className="font-medium text-dusk-600 hover:underline dark:text-dusk-400"
             >
               all appointments
             </Link>
@@ -338,7 +338,7 @@ export default async function AdminDashboardPage() {
           <Link
             key={item.href}
             href={item.href}
-            className="flex items-center gap-1 rounded-full border border-zinc-200 bg-white px-3 py-1.5 text-sm font-medium text-zinc-600 transition hover:border-emerald-300 hover:text-emerald-700 dark:border-zinc-800 dark:bg-zinc-900 dark:text-zinc-300"
+            className="flex items-center gap-1 rounded-full border border-zinc-200 bg-white px-3 py-1.5 text-sm font-medium text-zinc-600 transition hover:border-dusk-300 hover:text-dusk-700 dark:border-zinc-800 dark:bg-zinc-900 dark:text-zinc-300"
           >
             {item.label}
             <ArrowRight className="size-3.5" />

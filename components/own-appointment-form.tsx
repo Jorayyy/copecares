@@ -115,7 +115,7 @@ export function OwnAppointmentForm({
                 value={service.id}
                 checked={selectedServices.includes(service.id)}
                 onChange={() => toggleService(service.id)}
-                className="mt-0.5 size-4 rounded border-zinc-300 text-emerald-600"
+                className="mt-0.5 size-4 rounded border-zinc-300 text-dusk-600"
               />
               <span>
                 {service.name}

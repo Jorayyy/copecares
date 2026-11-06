@@ -182,7 +182,7 @@ export function LogoUpload({ hasLogo }: { hasLogo: boolean }) {
       </div>
 
       {saveState?.success ? (
-        <p className="text-sm font-medium text-emerald-600 dark:text-emerald-400">
+        <p className="text-sm font-medium text-dusk-600 dark:text-dusk-400">
           {saveState.success}
         </p>
       ) : null}

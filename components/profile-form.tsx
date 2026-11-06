@@ -56,7 +56,7 @@ export function ProfileForm({ profile }: { profile: Profile }) {
 
       <FormError message={state?.error} />
       {state?.success ? (
-        <p className="rounded-md bg-emerald-50 px-3 py-2 text-sm text-emerald-700 dark:bg-emerald-950/40 dark:text-emerald-300">
+        <p className="rounded-md bg-dusk-50 px-3 py-2 text-sm text-dusk-700 dark:bg-dusk-950/40 dark:text-dusk-300">
           {state.success}
         </p>
       ) : null}
