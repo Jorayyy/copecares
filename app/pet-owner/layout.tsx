@@ -4,6 +4,8 @@ import { redirect } from "next/navigation";
 
 import { logoutAction } from "@/app/actions/auth";
 import { auth } from "@/auth";
+import { BrandLogo } from "@/components/brand-logo";
+import { ThemeToggle } from "@/components/theme-toggle";
 import { Button } from "@/components/ui/button";
 import { PetOwnerNav } from "@/components/pet-owner-nav";
 import { homeForRole } from "@/lib/auth-routes";
@@ -31,15 +33,14 @@ export default async function PetOwnerLayout({
         <div className="mx-auto flex w-full max-w-5xl flex-col gap-2 px-4 py-3 sm:px-6">
           <div className="flex items-center justify-between gap-4">
             <Link href="/pet-owner" className="flex items-center gap-2">
-              <span className="grid size-9 place-items-center rounded-lg bg-emerald-600 text-lg font-bold text-white">
-                C
-              </span>
+              <BrandLogo className="size-9 text-lg" />
               <span className="font-semibold text-zinc-900 dark:text-zinc-50">
                 CopeCares
               </span>
             </Link>
 
             <div className="flex items-center gap-3">
+              <ThemeToggle />
               <div className="hidden text-right sm:block">
                 <p className="text-sm font-medium leading-tight text-zinc-900 dark:text-zinc-50">
                   {session.user.name}

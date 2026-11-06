@@ -5,6 +5,8 @@ import { redirect } from "next/navigation";
 import { logoutAction } from "@/app/actions/auth";
 import { auth } from "@/auth";
 import { AdminNav } from "@/components/admin-nav";
+import { BrandLogo } from "@/components/brand-logo";
+import { ThemeToggle } from "@/components/theme-toggle";
 import { Button } from "@/components/ui/button";
 import { ADMIN_ROLES, homeForRole } from "@/lib/auth-routes";
 
@@ -29,9 +31,7 @@ export default async function AdminLayout({
     <div className="flex min-h-screen flex-1 bg-zinc-50 dark:bg-zinc-950">
       <aside className="hidden w-64 flex-col border-r border-zinc-200 bg-white lg:flex dark:border-zinc-800 dark:bg-zinc-900">
         <Link href="/admin" className="flex items-center gap-2 px-6 py-5">
-          <span className="grid size-9 place-items-center rounded-lg bg-emerald-600 text-lg font-bold text-white">
-            C
-          </span>
+          <BrandLogo className="size-9 text-lg" />
           <div>
             <p className="text-sm font-semibold leading-tight text-zinc-900 dark:text-zinc-50">
               CopeCares
@@ -58,9 +58,7 @@ export default async function AdminLayout({
         <header className="flex flex-col gap-2 border-b border-zinc-200 bg-white px-4 py-3 lg:px-8 dark:border-zinc-800 dark:bg-zinc-900">
           <div className="flex items-center justify-between gap-4">
             <Link href="/admin" className="flex items-center gap-2 lg:hidden">
-              <span className="grid size-8 place-items-center rounded-lg bg-emerald-600 text-sm font-bold text-white">
-                C
-              </span>
+              <BrandLogo className="size-8 text-sm" />
               <span className="font-semibold text-zinc-900 dark:text-zinc-50">
                 CopeCares
               </span>
@@ -71,12 +69,15 @@ export default async function AdminLayout({
                 {session.user.name}
               </span>
             </p>
-            <form action={logoutAction}>
-              <Button type="submit" variant="ghost" size="sm">
-                <LogOut className="size-4" />
-                Sign out
-              </Button>
-            </form>
+            <div className="flex items-center gap-1">
+              <ThemeToggle />
+              <form action={logoutAction}>
+                <Button type="submit" variant="ghost" size="sm">
+                  <LogOut className="size-4" />
+                  Sign out
+                </Button>
+              </form>
+            </div>
           </div>
           <div className="lg:hidden">
             <AdminNav compact />

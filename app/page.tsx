@@ -4,6 +4,8 @@ import { redirect } from "next/navigation";
 
 import { auth } from "@/auth";
 import { homeForRole } from "@/lib/auth-routes";
+import { BrandLogo } from "@/components/brand-logo";
+import { ThemeToggle } from "@/components/theme-toggle";
 import { buttonVariants } from "@/components/ui/button";
 
 async function RedirectIfSignedIn() {
@@ -40,14 +42,13 @@ export default function Home() {
 
       <header className="flex items-center justify-between px-6 py-5">
         <div className="flex items-center gap-2">
-          <span className="grid size-9 place-items-center rounded-lg bg-emerald-600 text-lg font-bold text-white">
-            C
-          </span>
+          <BrandLogo className="size-9 text-lg" />
           <span className="text-lg font-semibold tracking-tight text-zinc-900 dark:text-zinc-50">
             CopeCares
           </span>
         </div>
         <div className="flex items-center gap-2">
+          <ThemeToggle />
           <Link href="/login" className={buttonVariants({ variant: "ghost" })}>
             Sign in
           </Link>
