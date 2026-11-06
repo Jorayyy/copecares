@@ -89,6 +89,70 @@ export async function saveLogo(
   return { success: "Logo updated." };
 }
 
+const GALLERY_SLOTS = 6;
+const GALLERY_KEY_PREFIX = "clinic_gallery_";
+const GALLERY_PATTERN = /^data:image\/(png|jpeg|webp);base64,[A-Za-z0-9+/=]+$/;
+
+function galleryTarget(formData: FormData) {
+  const slot = Number(formValue(formData, "slot"));
+
+  if (!Number.isInteger(slot) || slot < 1 || slot > GALLERY_SLOTS) {
+    return null;
+  }
+
+  return { slot, key: `${GALLERY_KEY_PREFIX}${slot}` };
+}
+
+export async function saveGalleryPhoto(
+  _previousState: ActionState,
+  formData: FormData,
+): Promise<ActionState> {
+  await requireAdmin();
+
+  const target = galleryTarget(formData);
+
+  if (!target) return { error: "Invalid photo slot." };
+
+  if (formValue(formData, "intent") === "remove") {
+    try {
+      await prisma.setting.updateMany({
+        where: { key: target.key },
+        data: { value: null },
+      });
+    } catch (error) {
+      return { error: errorMessage(error) };
+    }
+
+    revalidatePath("/admin/settings");
+    revalidatePath("/", "layout");
+    return { success: `Photo ${target.slot} removed.` };
+  }
+
+  const photo = formValue(formData, "photo");
+
+  if (!photo) return { error: "Choose an image first." };
+  if (!GALLERY_PATTERN.test(photo)) {
+    return { error: "Use a PNG, JPEG, or WebP image." };
+  }
+  if (photo.length > 2_500_000) {
+    return { error: "Image is too large. Choose a smaller file." };
+  }
+
+  try {
+    await prisma.setting.upsert({
+      where: { key: target.key },
+      create: { key: target.key, value: photo, group: "branding" },
+      update: { value: photo, group: "branding" },
+    });
+  } catch (error) {
+    return { error: errorMessage(error) };
+  }
+
+  revalidatePath("/admin/settings");
+  revalidatePath("/", "layout");
+  return { success: `Photo ${target.slot} updated.` };
+}
+
 const newSettingSchema = z.object({
   key: z
     .string()
