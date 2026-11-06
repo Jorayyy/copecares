@@ -47,7 +47,7 @@ export default function AdminDashboardPage() {
           Dashboard
         </h1>
         <p className="mt-1 text-sm text-zinc-600 dark:text-zinc-400">
-          Setup complete. Modules will be wired up next.
+          Jump into any module from the sidebar.
         </p>
       </div>
 

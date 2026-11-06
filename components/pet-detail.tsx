@@ -12,7 +12,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { ageLabel, formatDate, formatDateTime } from "@/lib/format";
+import { ageLabel, formatDate } from "@/lib/format";
 
 type PetDetailData = {
   id: number;
