@@ -208,8 +208,6 @@ export async function completeSale(
     if (!appointment) return { error: "Appointment not found." };
   }
 
-  let saleId = 0;
-
   try {
     const invoiceNumber = await nextInvoiceNumber();
 
@@ -234,13 +232,12 @@ export async function completeSale(
         },
       });
 
-      saleId = sale.id;
-
       await tx.saleItem.createMany({
         data: rows.map((row) => ({
           saleId: sale.id,
           itemType: row.itemType,
-          itemId: row.itemId,
+          productId: row.itemType === "product" ? row.itemId : null,
+          serviceId: row.itemType === "service" ? row.itemId : null,
           itemName: row.itemName,
           unitPrice: row.unitPrice,
           quantity: row.quantity,
@@ -273,5 +270,5 @@ export async function completeSale(
   revalidatePath("/admin/products");
   revalidatePath("/admin");
   if (appointmentId) revalidatePath(`/admin/appointments/${appointmentId}`);
-  redirect(`/admin/pos/sales/${saleId}`);
+  redirect("/admin/pos/sales");
 }
