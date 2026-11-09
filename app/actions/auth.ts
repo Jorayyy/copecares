@@ -14,21 +14,33 @@ const loginSchema = z.object({
   password: z.string().min(1, "Password is required."),
 });
 
-const registerSchema = z.object({
-  name: z.string().trim().min(2, "Name must be at least 2 characters."),
-  email: z.string().trim().toLowerCase().email("Enter a valid email address."),
-  phone: z
-    .string()
-    .trim()
-    .max(20, "Contact number is too long.")
-    .optional()
-    .or(z.literal("").transform(() => undefined)),
-  password: z
-    .string()
-    .min(8, "Password must be at least 8 characters.")
-    .regex(/[a-zA-Z]/, "Password must contain a letter.")
-    .regex(/[0-9]/, "Password must contain a number."),
-});
+const registerSchema = z
+  .object({
+    name: z.string().trim().min(2, "Name must be at least 2 characters."),
+    email: z.string().trim().toLowerCase().email("Enter a valid email address."),
+    phone: z
+      .string()
+      .trim()
+      .max(20, "Contact number is too long.")
+      .optional()
+      .or(z.literal("").transform(() => undefined)),
+    password: z
+      .string()
+      .min(8, "Password must be at least 8 characters.")
+      .regex(/[a-zA-Z]/, "Password must contain a letter.")
+      .regex(/[0-9]/, "Password must contain a number."),
+    confirmPassword: z.string().min(1, "Confirm your password."),
+    consent: z
+      .string()
+      .refine(
+        (value) => value === "on",
+        "Please accept the Privacy Notice and Terms of Use.",
+      ),
+  })
+  .refine((data) => data.password === data.confirmPassword, {
+    message: "Passwords do not match.",
+    path: ["confirmPassword"],
+  });
 
 function safeCallbackUrl(value: FormDataEntryValue | null) {
   const url = typeof value === "string" ? value : "";
@@ -70,6 +82,8 @@ export async function registerAction(
     email: formData.get("email"),
     phone: formData.get("phone"),
     password: formData.get("password"),
+    confirmPassword: formData.get("confirmPassword"),
+    consent: formData.get("consent"),
   });
 
   if (!parsed.success) {
