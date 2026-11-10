@@ -50,8 +50,9 @@ export const getClinicProfile = cache(async (): Promise<ClinicProfile> => {
     .sort((a, b) => a - b);
 
   return {
-    clinicName: settings.get("clinic_name") ?? "CopeCares Veterinary Clinic",
-    shortName: settings.get("clinic_short_name") ?? "CopeCares",
+    clinicName:
+      settings.get("clinic_name") ?? "Tacloban City Veterinary Office",
+    shortName: settings.get("clinic_short_name") ?? "TCVO",
     email: settings.get("clinic_email") ?? "",
     phone: settings.get("clinic_phone") ?? "",
     address: settings.get("clinic_address") ?? "Tacloban City, Philippines",

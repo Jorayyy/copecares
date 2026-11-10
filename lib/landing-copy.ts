@@ -12,73 +12,73 @@ const en = {
     { label: "Contact", href: "#contact" },
   ],
   topbar: {
-    hours: "Open daily",
+    hours: "Open Monday to Friday",
     phone: "Call",
     address: "Tacloban City",
   },
   hero: {
-    eyebrow: "Veterinary clinic · Tacloban City",
-    title: "Straightforward care for the pets you live with.",
+    eyebrow: "City Veterinary Office · Tacloban City",
+    title: "Free veterinary care for every pet in Tacloban.",
     body: (clinicName: string) =>
-      `${clinicName} sees dogs, cats, and other companion animals in Tacloban. Book a visit online, or call the clinic if your pet needs to be seen sooner.`,
-    primary: "Book an appointment",
-    secondary: "Call the clinic",
+      `${clinicName} provides anti-rabies vaccination, deworming, consultation, spay and neuter, pet registration, and animal control services for dogs and cats. Register online to keep your pet's records and appointments in one place.`,
+    primary: "Register as pet owner",
+    secondary: "Call the office",
     secondaryFallback: "Message us",
     trust: [
-      "Open daily",
-      "One record per pet",
-      "Walk-ins accepted when the schedule allows",
+      "Monday to Friday, 8:00 AM – 5:00 PM",
+      "Most basic services are free",
+      "Walk-ins accepted during office hours",
     ],
-    photoCaption: "Photos from the clinic appear here.",
-    photoHint: "Staff can upload clinic photos in Settings → Gallery.",
+    photoCaption: "Photos from the office and field activities appear here.",
+    photoHint: "Staff can upload photos in Settings → Gallery.",
   },
   services: {
     eyebrow: "Services",
-    title: "What the clinic offers",
+    title: "Veterinary services for Tacloban pets",
     intro:
-      "These are the clinic's current services and fees. Ask the front desk for an estimate before a procedure.",
-    cta: "Book a service",
+      "Most basic services are free. Some procedures may have minimal fees, and limited slots are offered first come, first served. Ask the front desk before a procedure.",
+    cta: "Register your pet",
     duration: "min",
-    fallback: "Clinic service.",
-    empty: "Services are being updated. Please call the clinic for the current list.",
+    fallback: "Veterinary service.",
+    empty: "Services are being updated. Please call the office for the current list.",
   },
   about: {
-    eyebrow: "About the clinic",
-    title: "A neighborhood clinic, run like one.",
+    eyebrow: "About the office",
+    title: "Serving pets and families across Tacloban.",
     body: (clinicName: string) =>
-      `${clinicName} is a local practice built around everyday pet care: check-ups, vaccinations, follow-ups, and the times when you need a clear answer quickly.`,
+      `${clinicName} (CVO) delivers accessible veterinary care for Tacloban City residents: anti-rabies vaccination, deworming, consultations, spay and neuter, pet registration, impounding, and community outreach.`,
     body2:
-      "Records stay with the pet, so each visit starts with context. Fees are explained before treatment, and staff will tell you when a case needs a referral.",
+      "The office works with barangays, schools, and pet owners to prevent rabies and promote responsible pet ownership under the Animal Code of Tacloban City (City Ordinance No. 2006-09-264) and R.A. 9482, the Anti-Rabies Act of 2007.",
     bullets: [
       "One medical record for each pet",
-      "Clear pricing before treatment",
-      "Appointments you can view and cancel online",
-      "Walk-ins handled around scheduled visits",
+      "Anti-rabies and deworming services",
+      "Spay and neuter, including CNVR for strays",
+      "Pet and dog registration",
     ],
     cards: [
       {
-        title: "Low-stress handling",
-        body: "Quiet rooms and gentle handling for anxious pets.",
+        title: "Barangay vaccination drives",
+        body: "Vaccinators visit barangays for free anti-rabies shots, deworming, and registration.",
       },
       {
-        title: "Practical advice",
-        body: "Home care instructions you can actually follow.",
+        title: "Spay and neuter",
+        body: "Regular sterilization at the office and CNVR operations for stray dogs.",
       },
       {
-        title: "Local and reachable",
-        body: "A clinic in Tacloban, not a call center abroad.",
+        title: "Animal control",
+        body: "Impounding of stray dogs and enforcement of the Animal Code.",
       },
       {
-        title: "Privacy-minded records",
-        body: "Pet and owner details are kept for clinic use only.",
+        title: "Rabies awareness",
+        body: "IEC campaigns in schools and communities, especially every March.",
       },
     ],
   },
   visit: {
     eyebrow: "Planning a visit",
-    title: "How booking works",
+    title: "How to register and visit",
     intro:
-      "New pet owners can register in a few minutes. Returning owners can sign in and book from their dashboard.",
+      "New pet owners can register online in a few minutes, then add their pets and request a visit. Walk-ins are also accepted during office hours.",
     steps: [
       {
         title: "Create your account",
@@ -93,22 +93,22 @@ const en = {
         body: "Pick an available slot. You can view or cancel it later.",
       },
     ],
-    note: "Prefer to talk to someone? Call the clinic during operating hours and the front desk will help.",
+    note: "Prefer to talk to someone? Call the office during office hours, or message the official Facebook page for schedules and announcements.",
   },
   team: {
     eyebrow: "Our team",
     title: "People your pet will meet",
-    intro: "The clinic's veterinarians and staff handle consultations, procedures, and front-desk concerns.",
-    staffTitle: "Clinic staff",
-    staffBody: "Front desk, assistants, and pet care support.",
+    intro: "The CVO's veterinarians and staff handle consultations, vaccination drives, sterilization procedures, and front-desk concerns.",
+    staffTitle: "Office staff",
+    staffBody: "Front desk, vaccinators, assistants, and animal control support.",
     role: "Veterinarian",
     empty: "Team details are being updated.",
   },
   gallery: {
     eyebrow: "Gallery",
-    title: "Inside the clinic",
-    intro: "Recent photos from the clinic and the pets we look after.",
-    empty: "Clinic photos will appear here once staff upload them.",
+    title: "Inside the office and the field",
+    intro: "Recent photos from the CVO, barangay drives, and the pets we look after.",
+    empty: "Photos will appear here once staff upload them.",
     uploadNote: "Staff can add photos in Settings → Gallery.",
   },
   reviews: {
@@ -120,12 +120,13 @@ const en = {
   },
   readiness: {
     eyebrow: "Public service",
-    title: "Built to be handed over",
-    body: "CopeCares is maintained with public-sector use in mind. The same records, roles, and safeguards used by the clinic are documented so an LGU can review them before acquisition.",
+    title: "Care that reaches every barangay.",
+    body: "The CVO brings vaccination, deworming, registration, and sterilization services to barangays across Tacloban, not only to pet owners who can visit the office.",
     bullets: [
-      "Role-based staff accounts",
-      "Soft-deleted records kept for retention review",
-      "Published privacy notice, terms, and accessibility contact",
+      "Free anti-rabies vaccination drives",
+      "Barangay pet registration and deworming",
+      "Spay, neuter, and CNVR for strays",
+      "Rabies awareness in schools and communities",
     ],
     cta: "Read the privacy notice",
   },
@@ -136,22 +137,22 @@ const en = {
       {
         question: "Do I need an appointment?",
         answer:
-          "Appointments help the clinic prepare, but walk-ins are accepted when the schedule allows. Booking online is the fastest way to reserve a slot.",
+          "Walk-ins are accepted during office hours, Monday to Friday. Registering online helps the office prepare and keeps your pet's records in one place.",
       },
       {
         question: "What pets do you treat?",
         answer:
-          "Dogs and cats are the main patients. The clinic also sees other companion animals when a veterinarian is available. Call first for exotic pets.",
+          "Dogs and cats are the main patients. The CVO also handles stray dogs and other companion animals when a veterinarian is available.",
       },
       {
-        question: "How much is a check-up?",
+        question: "How much do services cost?",
         answer:
-          "Consultation fees are listed under Services. Procedures, medicines, and laboratory tests are quoted separately before they are done.",
+          "Most basic services, including anti-rabies vaccination and deworming, are free. Some procedures may have minimal fees. Ask the front desk before a procedure.",
       },
       {
         question: "Can I cancel or reschedule?",
         answer:
-          "Yes. Sign in to your pet owner account and open the appointment to cancel it. Call the clinic if you need a different time.",
+          "Yes. Sign in to your pet owner account and open the appointment to cancel it. Call the office if you need a different time.",
       },
       {
         question: "What should I bring on the first visit?",
@@ -161,14 +162,14 @@ const en = {
       {
         question: "How are my records stored?",
         answer:
-          "Pet and owner details are stored in the clinic's system and used for care, billing, and follow-up. Read the privacy notice for the full explanation.",
+          "Pet and owner details are stored in the CVO system and used for care and follow-up. Read the privacy notice for the full explanation.",
       },
     ],
   },
   contact: {
-    eyebrow: "Visit the clinic",
+    eyebrow: "Visit the office",
     title: "Location and hours",
-    body: "Walk in during operating hours or book ahead. If you are unsure whether your pet needs urgent care, call first.",
+    body: "Walk in during office hours or register ahead. If you are unsure whether your pet needs urgent care, call first.",
     address: "Address",
     hours: "Hours",
     phone: "Phone",
@@ -179,7 +180,7 @@ const en = {
   },
   footer: {
     tagline:
-      "Veterinary care, appointments, and pet records for households in Tacloban.",
+      "Veterinary care, pet registration, and records for households in Tacloban City.",
     quickLinks: "Quick links",
     contact: "Contact",
     legal: "Policies",
@@ -208,74 +209,74 @@ const fil: LandingCopy = {
     { label: "Kontak", href: "#contact" },
   ],
   topbar: {
-    hours: "Bukas araw-araw",
+    hours: "Bukas Lunes hanggang Biyernes",
     phone: "Tumawag",
     address: "Lungsod ng Tacloban",
   },
   hero: {
-    eyebrow: "Betterinaryong klinika · Lungsod ng Tacloban",
-    title: "Simpleng pangangalaga para sa mga alaga ninyo.",
+    eyebrow: "City Veterinary Office · Lungsod ng Tacloban",
+    title: "Libreng pangangalaga para sa bawat alaga sa Tacloban.",
     body: (clinicName: string) =>
-      `Tumitingin ang ${clinicName} ng aso, pusa, at iba pang alagang hayop sa Tacloban. Mag-book online, o tumawag sa klinika kung kailangan ninyong makita agad ang alaga ninyo.`,
-    primary: "Mag-book ng appointment",
-    secondary: "Tumawag sa klinika",
+      `Nagbibigay ang ${clinicName} ng anti-rabies vaccination, deworming, konsultasyon, spay at neuter, pet registration, at animal control para sa mga aso at pusa. Magrehistro online para maitala ang record at appointment ng alaga ninyo.`,
+    primary: "Magrehistro bilang pet owner",
+    secondary: "Tumawag sa opisina",
     secondaryFallback: "Mag-message",
     trust: [
-      "Bukas araw-araw",
-      "Isang record bawat alaga",
-      "Tumatanggap ng walk-in kapag may oras",
+      "Lunes hanggang Biyernes, 8:00 AM – 5:00 PM",
+      "Libre ang karamihan sa basic services",
+      "Tumatanggap ng walk-in sa oras ng opisina",
     ],
-    photoCaption: "Dito lalabas ang mga larawan ng klinika.",
+    photoCaption: "Dito lalabas ang mga larawan ng opisina at field activities.",
     photoHint: "Puwedeng mag-upload ang staff sa Settings → Gallery.",
   },
   services: {
     eyebrow: "Mga serbisyo",
-    title: "Ano ang inaalok ng klinika",
+    title: "Mga serbisyong beterinaryo para sa mga alaga sa Tacloban",
     intro:
-      "Ito ang kasalukuyang serbisyo at bayad ng klinika. Magtanong sa front desk para sa estimate bago ang anumang procedure.",
-    cta: "Mag-book ng serbisyo",
+      "Libre ang karamihan sa basic services. May kaunting bayad ang ilang procedure, at first come, first served ang limitadong slots. Magtanong sa front desk bago ang procedure.",
+    cta: "Irehistro ang alaga",
     duration: "min",
-    fallback: "Serbisyo ng klinika.",
+    fallback: "Serbisyong beterinaryo.",
     empty:
-      "Ina-update pa ang listahan ng serbisyo. Tumawag sa klinika para sa kasalukuyang listahan.",
+      "Ina-update pa ang listahan ng serbisyo. Tumawag sa opisina para sa kasalukuyang listahan.",
   },
   about: {
-    eyebrow: "Tungkol sa klinika",
-    title: "Klinika sa kapitbahayan, pinapatakbo nang maayos.",
+    eyebrow: "Tungkol sa opisina",
+    title: "Naglilingkod sa mga alaga at pamilya sa buong Tacloban.",
     body: (clinicName: string) =>
-      `Ang ${clinicName} ay lokal na klinika para sa araw-araw na pangangalaga: check-up, bakuna, follow-up, at mga pagkakataong kailangan ninyo ng malinaw na sagot agad.`,
+      `Ang ${clinicName} (CVO) ay nagbibigay ng accessible na pangangalaga para sa mga residente ng Tacloban: anti-rabies vaccination, deworming, konsultasyon, spay at neuter, pet registration, impounding, at community outreach.`,
     body2:
-      "Nananatili ang record sa bawat alaga, kaya may konteksto ang bawat bisita. Ipinaliliwanag ang bayad bago ang treatment, at sasabihin ng staff kung kailangan ng referral.",
+      "Nakikipagtulungan ang opisina sa mga barangay, paaralan, at pet owners para maiwasan ang rabies at maisulong ang responsible pet ownership sa ilalim ng Animal Code of Tacloban City (City Ordinance No. 2006-09-264) at R.A. 9482, ang Anti-Rabies Act of 2007.",
     bullets: [
       "Isang medical record para sa bawat alaga",
-      "Malinaw na presyo bago ang treatment",
-      "Mga appointment na puwedeng tingnan at i-cancel online",
-      "Walk-in na tinatanggap kapag may bakanteng oras",
+      "Anti-rabies at deworming services",
+      "Spay at neuter, kasama ang CNVR para sa mga stray",
+      "Pet at dog registration",
     ],
     cards: [
       {
-        title: "Mahinahong paghawak",
-        body: "Tahimik na silid at maingat na paghawak para sa mga alagang kinakabahan.",
+        title: "Barangay vaccination drives",
+        body: "Bumibisita ang mga vaccinator sa barangay para sa libreng anti-rabies, deworming, at registration.",
       },
       {
-        title: "Praktikal na payo",
-        body: "Mga tagubilin sa pag-aalaga sa bahay na kayang sundin.",
+        title: "Spay at neuter",
+        body: "Regular na sterilization sa opisina at CNVR operations para sa mga stray dog.",
       },
       {
-        title: "Lokal at malapit",
-        body: "Klinika sa Tacloban, hindi call center sa ibang bansa.",
+        title: "Animal control",
+        body: "Impounding ng mga stray dog at pagpapatupad ng Animal Code.",
       },
       {
-        title: "Record na pribado",
-        body: "Ang detalye ng alaga at may-ari ay para sa klinika lamang.",
+        title: "Rabies awareness",
+        body: "IEC campaigns sa mga paaralan at komunidad, lalo na tuwing Marso.",
       },
     ],
   },
   visit: {
     eyebrow: "Pagpaplano ng bisita",
-    title: "Paano mag-book",
+    title: "Paano magrehistro at bumisita",
     intro:
-      "Ang bagong pet owner ay puwedeng magrehistro sa ilang minuto. Ang may account na ay puwedeng mag-sign in at mag-book mula sa dashboard.",
+      "Ang bagong pet owner ay puwedeng magrehistro online sa ilang minuto, magdagdag ng alaga, at mag-request ng bisita. Tumatanggap din ng walk-in sa oras ng opisina.",
     steps: [
       {
         title: "Gumawa ng account",
@@ -290,23 +291,23 @@ const fil: LandingCopy = {
         body: "Pumili ng available na slot. Puwede itong tingnan o i-cancel mamaya.",
       },
     ],
-    note: "Mas gusto ninyong kausapin ang staff? Tumawag sa klinika sa oras ng operasyon at tutulungan kayo ng front desk.",
+    note: "Mas gusto ninyong kausapin ang staff? Tumawag sa opisina sa oras ng trabaho, o mag-message sa official Facebook page para sa schedule at anunsyo.",
   },
   team: {
     eyebrow: "Ang team",
     title: "Mga taong makikilala ng alaga ninyo",
     intro:
-      "Ang mga beterinaryo at staff ng klinika ang humahawak ng konsultasyon, procedure, at mga tanong sa front desk.",
-    staffTitle: "Staff ng klinika",
-    staffBody: "Front desk, assistants, at pet care support.",
+      "Ang mga beterinaryo at staff ng CVO ang humahawak ng konsultasyon, vaccination drives, sterilization, at mga tanong sa front desk.",
+    staffTitle: "Staff ng opisina",
+    staffBody: "Front desk, vaccinators, assistants, at animal control support.",
     role: "Beterinaryo",
     empty: "Ina-update pa ang detalye ng team.",
   },
   gallery: {
     eyebrow: "Gallery",
-    title: "Sa loob ng klinika",
-    intro: "Mga kamakailang larawan ng klinika at ng mga alagang inaalagaan namin.",
-    empty: "Lalabas dito ang mga larawan ng klinika kapag nag-upload ang staff.",
+    title: "Sa loob ng opisina at sa field",
+    intro: "Mga kamakailang larawan ng CVO, barangay drives, at ng mga alagang inaalagaan namin.",
+    empty: "Lalabas dito ang mga larawan kapag nag-upload ang staff.",
     uploadNote: "Puwedeng magdagdag ng larawan ang staff sa Settings → Gallery.",
   },
   reviews: {
@@ -318,12 +319,13 @@ const fil: LandingCopy = {
   },
   readiness: {
     eyebrow: "Pampublikong serbisyo",
-    title: "Ginawa para maipasa",
-    body: "Pinapanatili ang CopeCares na angkop para sa pampublikong sektor. Ang parehong record, role, at safeguard ng klinika ay dokumentado para masuri ng LGU bago ang acquisition.",
+    title: "Umaabot ang serbisyo sa bawat barangay.",
+    body: "Dinadala ng CVO ang vaccination, deworming, registration, at sterilization sa mga barangay sa Tacloban, hindi lamang sa mga makakapunta sa opisina.",
     bullets: [
-      "Role-based na account ng staff",
-      "Soft-deleted na record para sa retention review",
-      "Nakalathalang privacy notice, terms, at accessibility contact",
+      "Libreng anti-rabies vaccination drives",
+      "Barangay pet registration at deworming",
+      "Spay, neuter, at CNVR para sa mga stray",
+      "Rabies awareness sa paaralan at komunidad",
     ],
     cta: "Basahin ang privacy notice",
   },
@@ -334,22 +336,22 @@ const fil: LandingCopy = {
       {
         question: "Kailangan ba ng appointment?",
         answer:
-          "Nakakatulong ang appointment para makapaghanda ang klinika, pero tumatanggap ng walk-in kapag may oras. Ang online booking ang pinakamabilis na paraan para makareserba.",
+          "Tumatanggap ng walk-in sa oras ng opisina, Lunes hanggang Biyernes. Nakakatulong ang online registration para makapaghanda ang opisina at maitala ang record ng alaga.",
       },
       {
         question: "Anong mga alaga ang ginagamot ninyo?",
         answer:
-          "Aso at pusa ang pangunahing pasyente. Tumatanggap din ng ibang alagang hayop kapag may available na beterinaryo. Tumawag muna para sa exotic pets.",
+          "Aso at pusa ang pangunahing pasyente. Hinahawakan din ng CVO ang mga stray dog at iba pang alagang hayop kapag may available na beterinaryo.",
       },
       {
-        question: "Magkano ang check-up?",
+        question: "Magkano ang mga serbisyo?",
         answer:
-          "Nakalista ang bayad sa konsultasyon sa ilalim ng Mga Serbisyo. Hiwalay na binibigyan ng quote ang procedure, gamot, at laboratory test bago gawin.",
+          "Libre ang karamihan sa basic services, kasama ang anti-rabies vaccination at deworming. May kaunting bayad ang ilang procedure. Magtanong sa front desk bago ang procedure.",
       },
       {
         question: "Puwede bang mag-cancel o magpalit ng oras?",
         answer:
-          "Oo. Mag-sign in sa pet owner account at buksan ang appointment para i-cancel. Tumawag sa klinika kung kailangan ng ibang oras.",
+          "Oo. Mag-sign in sa pet owner account at buksan ang appointment para i-cancel. Tumawag sa opisina kung kailangan ng ibang oras.",
       },
       {
         question: "Ano ang dadalhin sa unang bisita?",
@@ -359,14 +361,14 @@ const fil: LandingCopy = {
       {
         question: "Paano itinatago ang record?",
         answer:
-          "Nasa system ng klinika ang detalye ng alaga at may-ari at ginagamit para sa care, billing, at follow-up. Basahin ang privacy notice para sa buong paliwanag.",
+          "Nasa system ng CVO ang detalye ng alaga at may-ari at ginagamit para sa care at follow-up. Basahin ang privacy notice para sa buong paliwanag.",
       },
     ],
   },
   contact: {
-    eyebrow: "Bisitahin ang klinika",
+    eyebrow: "Bisitahin ang opisina",
     title: "Lokasyon at oras",
-    body: "Puwedeng mag-walk in sa oras ng operasyon o mag-book muna. Kung hindi sigurado kung emergency ang kalagayan ng alaga, tumawag muna.",
+    body: "Puwedeng mag-walk in sa oras ng opisina o magrehistro muna. Kung hindi sigurado kung emergency ang kalagayan ng alaga, tumawag muna.",
     address: "Address",
     hours: "Oras",
     phone: "Telepono",
@@ -377,7 +379,7 @@ const fil: LandingCopy = {
   },
   footer: {
     tagline:
-      "Pangangalaga, appointment, at record ng alaga para sa mga sambahayan sa Tacloban.",
+      "Pangangalaga, pet registration, at record ng alaga para sa mga sambahayan sa Lungsod ng Tacloban.",
     quickLinks: "Mabilis na link",
     contact: "Kontak",
     legal: "Mga patakaran",

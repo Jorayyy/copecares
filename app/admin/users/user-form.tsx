@@ -7,6 +7,7 @@ import { saveUser } from "@/lib/actions/users";
 import type { ActionState } from "@/lib/action-state";
 import { buttonVariants } from "@/components/ui/button";
 import { FormError } from "@/components/ui/form-error";
+import { ImageUpload } from "@/components/ui/image-upload";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Select } from "@/components/ui/select";
@@ -19,6 +20,7 @@ type User = {
   email: string;
   phone: string | null;
   address: string | null;
+  avatar: string | null;
   roleId: number | null;
   isActive: boolean;
 };
@@ -40,6 +42,13 @@ export function UserForm({
   return (
     <form action={formAction} className="flex max-w-xl flex-col gap-4">
       {user ? <input type="hidden" name="id" value={user.id} /> : null}
+
+      <ImageUpload
+        name="avatar"
+        label="Profile photo"
+        initialImage={user?.avatar}
+        shape="circle"
+      />
 
       <div className="flex flex-col gap-2">
         <Label htmlFor="name">Full name</Label>

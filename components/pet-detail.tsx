@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Badge, statusTone } from "@/components/ui/badge";
 import { buttonVariants } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import { Thumbnail } from "@/components/ui/thumbnail";
 import {
   Table,
   TableBody,
@@ -23,6 +24,7 @@ type PetDetailData = {
   weight: { toString(): string } | null;
   color: string | null;
   medicalNotes: string | null;
+  image: string | null;
   isActive: boolean;
   petCategory: { name: string };
   user: { name: string; email: string; phone: string | null };
@@ -71,18 +73,25 @@ export function PetDetail({
     <div className="flex flex-col gap-6">
       <Card className="flex flex-col gap-4">
         <div className="flex flex-wrap items-start justify-between gap-4">
-          <div>
-            <div className="flex items-center gap-2">
-              <h2 className="text-lg font-semibold text-zinc-900 dark:text-zinc-50">
-                {pet.name}
-              </h2>
-              <Badge tone={pet.isActive ? "success" : "default"}>
-                {pet.isActive ? "active" : "inactive"}
-              </Badge>
+          <div className="flex items-center gap-4">
+            <Thumbnail
+              src={pet.image}
+              alt={pet.name}
+              className="size-16"
+            />
+            <div>
+              <div className="flex items-center gap-2">
+                <h2 className="text-lg font-semibold text-zinc-900 dark:text-zinc-50">
+                  {pet.name}
+                </h2>
+                <Badge tone={pet.isActive ? "success" : "default"}>
+                  {pet.isActive ? "active" : "inactive"}
+                </Badge>
+              </div>
+              <p className="text-sm text-zinc-500 dark:text-zinc-400">
+                {pet.petCategory.name} · {pet.breed ?? "Unknown breed"}
+              </p>
             </div>
-            <p className="text-sm text-zinc-500 dark:text-zinc-400">
-              {pet.petCategory.name} · {pet.breed ?? "Unknown breed"}
-            </p>
           </div>
           <div className="flex items-center gap-2">
             <Link href={editHref} className={buttonVariants({ variant: "outline" })}>

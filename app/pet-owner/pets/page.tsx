@@ -7,6 +7,7 @@ import { buttonVariants } from "@/components/ui/button";
 import { DeleteButton } from "@/components/ui/delete-button";
 import { EmptyState } from "@/components/ui/empty-state";
 import { PageHeader } from "@/components/ui/page-header";
+import { Thumbnail } from "@/components/ui/thumbnail";
 import { ageLabel } from "@/lib/format";
 import { prisma } from "@/lib/prisma";
 import { requirePetOwner } from "@/lib/session";
@@ -60,16 +61,23 @@ export default async function MyPetsPage() {
               className="flex flex-col gap-3 rounded-lg border border-zinc-200 bg-white p-5 dark:border-zinc-800 dark:bg-zinc-900"
             >
               <div className="flex items-start justify-between gap-3">
-                <div>
-                  <Link
-                    href={`/pet-owner/pets/${pet.id}`}
-                    className="text-base font-semibold text-zinc-900 hover:underline dark:text-zinc-50"
-                  >
-                    {pet.name}
-                  </Link>
-                  <p className="text-sm text-zinc-500 dark:text-zinc-400">
-                    {pet.petCategory.name} · {pet.breed ?? "Unknown breed"}
-                  </p>
+                <div className="flex items-center gap-3">
+                  <Thumbnail
+                    src={pet.image}
+                    alt={pet.name}
+                    className="size-12"
+                  />
+                  <div>
+                    <Link
+                      href={`/pet-owner/pets/${pet.id}`}
+                      className="text-base font-semibold text-zinc-900 hover:underline dark:text-zinc-50"
+                    >
+                      {pet.name}
+                    </Link>
+                    <p className="text-sm text-zinc-500 dark:text-zinc-400">
+                      {pet.petCategory.name} · {pet.breed ?? "Unknown breed"}
+                    </p>
+                  </div>
                 </div>
                 <Badge tone={pet.isActive ? "success" : "default"}>
                   {pet.isActive ? "active" : "inactive"}

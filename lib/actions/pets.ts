@@ -11,6 +11,7 @@ import {
   formDate,
   formValue,
 } from "@/lib/form-utils";
+import { resolveImageField } from "@/lib/image";
 import { prisma } from "@/lib/prisma";
 import { requireAdmin, requirePetOwner } from "@/lib/session";
 
@@ -51,6 +52,10 @@ async function persistPet(
     return { error: "Weight must be a positive number." };
   }
 
+  const image = resolveImageField(formData);
+
+  if (image.error) return { error: image.error };
+
   const id = Number(formValue(formData, "id") || 0);
   const data = {
     userId: ownerId,
@@ -63,6 +68,7 @@ async function persistPet(
     color: parsed.data.color || null,
     medicalNotes: parsed.data.medicalNotes || null,
     isActive: formBoolean(formData, "isActive"),
+    ...(image.value !== undefined ? { image: image.value } : {}),
   };
 
   try {

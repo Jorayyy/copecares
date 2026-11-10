@@ -41,6 +41,7 @@ export default async function EditProductPage({
           stockQuantity: product.stockQuantity,
           reorderLevel: product.reorderLevel,
           unit: product.unit,
+          image: product.image,
           isActive: product.isActive,
           productCategoryId: product.productCategoryId,
         }}

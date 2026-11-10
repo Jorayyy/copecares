@@ -7,6 +7,7 @@ import { saveProduct } from "@/lib/actions/products";
 import type { ActionState } from "@/lib/action-state";
 import { buttonVariants } from "@/components/ui/button";
 import { FormError } from "@/components/ui/form-error";
+import { ImageUpload } from "@/components/ui/image-upload";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Select } from "@/components/ui/select";
@@ -23,6 +24,7 @@ type Product = {
   stockQuantity: number;
   reorderLevel: number;
   unit: string;
+  image: string | null;
   isActive: boolean;
   productCategoryId: number | null;
 };
@@ -42,6 +44,12 @@ export function ProductForm({
   return (
     <form action={formAction} className="flex max-w-2xl flex-col gap-4">
       {product ? <input type="hidden" name="id" value={product.id} /> : null}
+
+      <ImageUpload
+        name="image"
+        label="Product photo"
+        initialImage={product?.image}
+      />
 
       <div className="grid gap-4 sm:grid-cols-2">
         <div className="flex flex-col gap-2">

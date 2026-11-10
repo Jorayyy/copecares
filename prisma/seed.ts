@@ -237,13 +237,22 @@ const products = [
 ];
 
 const settings = [
-  { key: "clinic_name", value: "CopeCares Veterinary Clinic", group: "general" },
-  { key: "clinic_short_name", value: "CopeCares", group: "general" },
-  { key: "clinic_email", value: "info@copecares.com", group: "general" },
-  { key: "clinic_phone", value: "(053) 123-4567", group: "general" },
+  {
+    key: "clinic_name",
+    value: "Tacloban City Veterinary Office",
+    group: "general",
+  },
+  { key: "clinic_short_name", value: "TCVO", group: "general" },
+  {
+    key: "clinic_email",
+    value: "copecares@tacloban.gov.ph",
+    group: "general",
+  },
+  { key: "clinic_phone", value: "+63 912 093 2492", group: "general" },
   {
     key: "clinic_address",
-    value: "123 Veterinary Street, Tacloban City, Leyte",
+    value:
+      "2nd Floor, MASA Building, Tacloban City Supermarket, Tacloban City 6500",
     group: "general",
   },
   { key: "opening_time", value: "08:00", group: "schedule" },
@@ -254,7 +263,7 @@ const settings = [
   { key: "currency_symbol", value: "₱", group: "pos" },
   {
     key: "receipt_footer",
-    value: "Thank you for choosing CopeCares!",
+    value: "Thank you for visiting the Tacloban City Veterinary Office!",
     group: "pos",
   },
 ];

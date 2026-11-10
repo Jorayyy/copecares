@@ -51,6 +51,7 @@ export default async function EditPetPage({
           weight: pet.weight?.toString() ?? null,
           color: pet.color,
           medicalNotes: pet.medicalNotes,
+          image: pet.image,
           isActive: pet.isActive,
         }}
       />

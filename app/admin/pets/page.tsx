@@ -6,6 +6,7 @@ import { Badge } from "@/components/ui/badge";
 import { buttonVariants } from "@/components/ui/button";
 import { DeleteButton } from "@/components/ui/delete-button";
 import { PageHeader } from "@/components/ui/page-header";
+import { Thumbnail } from "@/components/ui/thumbnail";
 import {
   Table,
   TableBody,
@@ -71,15 +72,20 @@ export default async function PetsPage() {
             pets.map((pet) => (
               <TableRow key={pet.id}>
                 <TableCell>
-                  <Link
-                    href={`/admin/pets/${pet.id}`}
-                    className="font-medium text-zinc-900 hover:underline dark:text-zinc-50"
-                  >
-                    {pet.name}
-                  </Link>
-                  <p className="text-xs text-zinc-500 dark:text-zinc-400">
-                    {pet.breed ?? "Unknown breed"}
-                  </p>
+                  <div className="flex items-center gap-3">
+                    <Thumbnail src={pet.image} alt={pet.name} />
+                    <div>
+                      <Link
+                        href={`/admin/pets/${pet.id}`}
+                        className="font-medium text-zinc-900 hover:underline dark:text-zinc-50"
+                      >
+                        {pet.name}
+                      </Link>
+                      <p className="text-xs text-zinc-500 dark:text-zinc-400">
+                        {pet.breed ?? "Unknown breed"}
+                      </p>
+                    </div>
+                  </div>
                 </TableCell>
                 <TableCell>
                   <p>{pet.user.name}</p>

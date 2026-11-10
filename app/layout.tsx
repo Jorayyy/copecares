@@ -20,11 +20,11 @@ const sourceSerif = Source_Serif_4({
 
 export const metadata: Metadata = {
   title: {
-    default: "CopeCares Veterinary Clinic",
-    template: "%s | CopeCares",
+    default: "Tacloban City Veterinary Office",
+    template: "%s | TCVO",
   },
   description:
-    "Veterinary clinic in Tacloban City. Book appointments, keep pet records, and manage clinic operations.",
+    "Pet care and records for the Tacloban City Veterinary Office: pets, appointments, medical records, and services.",
 };
 
 const themeScript = `(function(){try{var t=localStorage.getItem("copecares-theme")||"light";var d=t==="dark"||(t==="system"&&window.matchMedia("(prefers-color-scheme: dark)").matches);var e=document.documentElement;e.classList.toggle("dark",d);e.style.colorScheme=d?"dark":"light";}catch(e){}})();`;

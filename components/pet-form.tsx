@@ -6,6 +6,7 @@ import { useActionState } from "react";
 import type { ActionState } from "@/lib/action-state";
 import { buttonVariants } from "@/components/ui/button";
 import { FormError } from "@/components/ui/form-error";
+import { ImageUpload } from "@/components/ui/image-upload";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Select } from "@/components/ui/select";
@@ -24,6 +25,7 @@ type Pet = {
   weight: string | null;
   color: string | null;
   medicalNotes: string | null;
+  image: string | null;
   isActive: boolean;
 };
 
@@ -48,6 +50,8 @@ export function PetForm({
   return (
     <form action={formAction} className="flex max-w-2xl flex-col gap-4">
       {pet ? <input type="hidden" name="id" value={pet.id} /> : null}
+
+      <ImageUpload name="image" label="Pet photo" initialImage={pet?.image} />
 
       {owners ? (
         <div className="flex flex-col gap-2">

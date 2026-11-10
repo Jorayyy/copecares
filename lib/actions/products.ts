@@ -11,6 +11,7 @@ import {
   formValue,
   optionalValue,
 } from "@/lib/form-utils";
+import { resolveImageField } from "@/lib/image";
 import { prisma } from "@/lib/prisma";
 import { requireAdmin } from "@/lib/session";
 
@@ -46,6 +47,10 @@ export async function saveProduct(
     return { error: parsed.error.issues[0]?.message ?? "Invalid details." };
   }
 
+  const image = resolveImageField(formData);
+
+  if (image.error) return { error: image.error };
+
   const id = Number(formValue(formData, "id") || 0);
   const productCategoryId = optionalValue(formData, "productCategoryId");
   const data = {
@@ -59,6 +64,7 @@ export async function saveProduct(
     unit: parsed.data.unit,
     isActive: formBoolean(formData, "isActive"),
     productCategoryId: productCategoryId ? Number(productCategoryId) : null,
+    ...(image.value !== undefined ? { image: image.value } : {}),
   };
 
   try {

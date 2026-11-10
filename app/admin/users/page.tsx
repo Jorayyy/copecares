@@ -5,6 +5,7 @@ import { activateUser, deactivateUser } from "@/lib/actions/users";
 import { Badge } from "@/components/ui/badge";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { PageHeader } from "@/components/ui/page-header";
+import { Thumbnail } from "@/components/ui/thumbnail";
 import {
   Table,
   TableBody,
@@ -59,15 +60,26 @@ export default async function UsersPage() {
             users.map((user) => (
               <TableRow key={user.id}>
                 <TableCell>
-                  <p className="font-medium text-zinc-900 dark:text-zinc-50">
-                    {user.name}
-                    {user.id === currentUser.id ? (
-                      <span className="ml-2 text-xs text-zinc-500">(you)</span>
-                    ) : null}
-                  </p>
-                  <p className="text-xs text-zinc-500 dark:text-zinc-400">
-                    {user.email}
-                  </p>
+                  <div className="flex items-center gap-3">
+                    <Thumbnail
+                      src={user.avatar}
+                      alt={user.name}
+                      shape="circle"
+                    />
+                    <div>
+                      <p className="font-medium text-zinc-900 dark:text-zinc-50">
+                        {user.name}
+                        {user.id === currentUser.id ? (
+                          <span className="ml-2 text-xs text-zinc-500">
+                            (you)
+                          </span>
+                        ) : null}
+                      </p>
+                      <p className="text-xs text-zinc-500 dark:text-zinc-400">
+                        {user.email}
+                      </p>
+                    </div>
+                  </div>
                 </TableCell>
                 <TableCell>
                   <Badge tone="info">{user.role?.name ?? "No role"}</Badge>

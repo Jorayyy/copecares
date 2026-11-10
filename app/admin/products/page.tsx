@@ -6,6 +6,7 @@ import { Badge } from "@/components/ui/badge";
 import { buttonVariants } from "@/components/ui/button";
 import { DeleteButton } from "@/components/ui/delete-button";
 import { PageHeader } from "@/components/ui/page-header";
+import { Thumbnail } from "@/components/ui/thumbnail";
 import {
   Table,
   TableBody,
@@ -65,12 +66,17 @@ export default async function ProductsPage() {
               return (
                 <TableRow key={product.id}>
                   <TableCell>
-                    <p className="font-medium text-zinc-900 dark:text-zinc-50">
-                      {product.name}
-                    </p>
-                    <p className="text-xs text-zinc-500 dark:text-zinc-400">
-                      {product.sku ?? "No SKU"}
-                    </p>
+                    <div className="flex items-center gap-3">
+                      <Thumbnail src={product.image} alt={product.name} />
+                      <div>
+                        <p className="font-medium text-zinc-900 dark:text-zinc-50">
+                          {product.name}
+                        </p>
+                        <p className="text-xs text-zinc-500 dark:text-zinc-400">
+                          {product.sku ?? "No SKU"}
+                        </p>
+                      </div>
+                    </div>
                   </TableCell>
                   <TableCell>{product.productCategory?.name ?? "—"}</TableCell>
                   <TableCell>{formatPeso(product.costPrice)}</TableCell>

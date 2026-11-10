@@ -7,6 +7,7 @@ import { z } from "zod";
 
 import type { ActionState } from "@/lib/action-state";
 import { errorMessage, formBoolean, formValue } from "@/lib/form-utils";
+import { resolveImageField } from "@/lib/image";
 import { prisma } from "@/lib/prisma";
 import { requireAdmin } from "@/lib/session";
 
@@ -55,6 +56,10 @@ export async function saveUser(
     return { error: "You cannot deactivate your own account." };
   }
 
+  const avatar = resolveImageField(formData, "avatar");
+
+  if (avatar.error) return { error: avatar.error };
+
   const data = {
     name: parsed.data.name,
     email: parsed.data.email,
@@ -63,6 +68,7 @@ export async function saveUser(
     roleId: parsed.data.roleId,
     isActive,
     ...(password ? { password: await hash(password, 10) } : {}),
+    ...(avatar.value !== undefined ? { avatar: avatar.value } : {}),
   };
 
   try {
